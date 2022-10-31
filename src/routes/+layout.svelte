@@ -1,11 +1,14 @@
 <script>
+	import Footer from '$lib/components/Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import '$lib/styles/global.css';
+	import '$lib/styles/normalize.css';
 </script>
 
-<header>Nagłówek</header>
+<Header />
 
 <main>
 	<slot />
 </main>
 
-<footer>Stopka</footer>
+<Footer />
