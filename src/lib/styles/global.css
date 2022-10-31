@@ -1,3 +1,19 @@
 body {
-	background: rgb(229, 229, 229);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: whitesmoke;
+	font-family: 'Inter', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #1e1e1e;
+		color: whitesmoke;
+	}
+
+	a {
+		color: #bf1e2e;
+	}
 }
