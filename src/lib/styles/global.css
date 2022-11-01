@@ -1,8 +1,20 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+html,
 body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+	height: 100%;
+	box-sizing: border-box;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
 	background-color: whitesmoke;
 	font-family: 'Inter', sans-serif;
 }
@@ -16,4 +28,21 @@ body {
 	a {
 		color: #bf1e2e;
 	}
+}
+
+a[target='_blank']::after {
+	content: url('./assets/external_link.svg');
+}
+
+.main-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.global-container {
+	max-width: 1130px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
 }

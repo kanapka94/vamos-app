@@ -4,9 +4,3 @@
 	BlockFactory będzie na podstawie typu renderował odpowiedni komponent html. W środku będzie się elegancko
 	renderować.
 </p>
-
-<style>
-	p {
-		color: #bada88;
-	}
-</style>

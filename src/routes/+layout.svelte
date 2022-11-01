@@ -7,16 +7,14 @@
 
 <Header />
 
-<main>
+<main class="global-container">
 	<slot />
 </main>
 
 <Footer />
 
-<style lang="scss">
+<style>
 	main {
-		max-width: 1024px;
-		width: 100%;
-		margin: 0 auto;
+		flex: 1 0 auto;
 	}
 </style>

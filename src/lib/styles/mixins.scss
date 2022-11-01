@@ -1,0 +1,74 @@
+// **********************
+//      Breakpoints
+// **********************
+$media-breakpoints: (
+	lg: 1169px,
+	md: 767px,
+	sm: 575px,
+	xs: 320px
+);
+
+@mixin media($breakpoint: lg) {
+	@media (max-width: map-get($media-breakpoints, $breakpoint)) {
+		@content;
+	}
+}
+
+@mixin small-desktop {
+	@include media(lg) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@include media(md) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@include media(sm) {
+		@content;
+	}
+}
+
+@mixin mobile-xs {
+	@include media(xs) {
+		@content;
+	}
+}
+
+// **********************
+//   General Components
+// **********************
+
+@mixin shadow($height: auto) {
+	width: 100%;
+	height: $height;
+	background: rgb(0, 0, 0);
+	background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+// ****************
+//    Animations
+// ****************
+
+@mixin transition {
+	transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+// **********************
+//   System
+// **********************
+
+@mixin dark {
+	@media (prefers-color-scheme: dark) {
+		@content;
+	}
+}
+
+@mixin light {
+	@media (prefers-color-scheme: light) {
+		@content;
+	}
+}
