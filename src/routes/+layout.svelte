@@ -1,11 +1,14 @@
-<script>
+<script lang="ts">
 	import ContactSection from '$lib/components/ContactSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import '$lib/styles/global.css';
 	import '$lib/styles/normalize.css';
 	import { setTheme, startListeningToOSTheme, stopListeningToOSTheme } from '$lib/utils/theme';
+	import type { LayoutServerData } from './$types';
 	import { onDestroy, onMount } from 'svelte';
+
+	export let data: LayoutServerData;
 
 	onMount(() => {
 		setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -15,7 +18,7 @@
 	onDestroy(stopListeningToOSTheme);
 </script>
 
-<Header />
+<Header menu={data.menus[0]} />
 
 <main class="global-container">
 	<slot />

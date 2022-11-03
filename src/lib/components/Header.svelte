@@ -3,6 +3,20 @@
 	import logo from '$lib/assets/vamos_logo.png';
 	import { clickOutside } from '$lib/utils/directive';
 
+	interface Menu {
+		id: string;
+		status: 'published' | 'draft' | 'archived';
+		items: Item[];
+	}
+
+	interface Item {
+		label: string;
+		url: string;
+		submenu?: Item[];
+	}
+
+	export let menu: Menu;
+
 	let active = false;
 
 	function handleBurgerClick() {
@@ -26,25 +40,34 @@
 			<img src={logo} alt="Vamos logo" class="logo" />
 		</a>
 		<button class="burger" on:click={handleBurgerClick}>Menu</button>
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<nav class:active on:click={handleClickOutside}>
-			<ul class="menu" on:click|stopPropagation>
-				<li class="with-sub-menu">
-					<a href="/realizacje" class="link" class:active={$page.url.pathname === '/realizacje'}
-						>Realizacje</a
-					>
-					<ul class="sub-menu left">
-						<li>
-							<a href="/realizacje/domki-drewniane" class="link">Domki drewniane</a>
+		<nav class:active>
+			<ul class="menu">
+				{#each menu.items as item, index}
+					{#if item.submenu}
+						<li class="with-sub-menu">
+							<a href={item.url} class="link" class:active={$page.url.pathname === item.url}
+								>{item.label}</a
+							>
+							<ul class="sub-menu" class:right={index === menu.items.length - 1}>
+								{#each item.submenu as subItem}
+									<li>
+										<a
+											href={subItem.url}
+											class="link"
+											class:active={$page.url.pathname === subItem.url}>{subItem.label}</a
+										>
+									</li>
+								{/each}
+							</ul>
 						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="/o-nas" class="link">O nas</a>
-				</li>
-				<li>
-					<a href="/kontakt" class="link">Kontakt</a>
-				</li>
+					{:else}
+						<li>
+							<a href={item.url} class="link" class:active={$page.url.pathname === item.url}
+								>{item.label}</a
+							>
+						</li>
+					{/if}
+				{/each}
 			</ul>
 		</nav>
 	</div>
@@ -119,8 +142,9 @@
 			display: none;
 			position: absolute;
 			top: 50px;
+			left: 15px;
 			min-width: 220px;
-			padding: 20px 25px;
+			padding: 20px 10px;
 			background-color: var(--header-background);
 			border-radius: 10px;
 			box-shadow: -2px 7px 33px -5px rgb(199, 199, 199);
@@ -133,17 +157,14 @@
 				display: block;
 			}
 
-			&.left {
-				left: 15px;
-			}
-
 			&.right {
+				left: auto;
 				right: 15px;
 			}
 		}
 
 		li {
-			padding: 10px 0;
+			padding: 15px;
 		}
 
 		@include mobile {
@@ -196,7 +217,9 @@
 
 			&::before {
 				content: '•';
-				margin-right: 2px;
+				position: absolute;
+				top: 13px;
+				left: 0;
 				color: var(--primary-color);
 			}
 		}
