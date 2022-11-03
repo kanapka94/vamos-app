@@ -8,12 +8,16 @@
 	--background: whitesmoke;
 	--color: #1e1e1e;
 	--primary-color: #be1e2e;
+	--header-background: #e9e0d5;
+	--contact-background: #eeeeee;
 }
 
 :root[data-theme='dark-theme'] {
 	--background: #1e1f21;
 	--color: whitesmoke;
 	--primary-color: #be1e2e;
+	--header-background: #282a30;
+	--contact-background: #303437;
 }
 
 html,

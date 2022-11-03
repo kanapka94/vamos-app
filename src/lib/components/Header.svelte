@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import logo from '$lib/assets/vamos_logo.png';
 	import { clickOutside } from '$lib/utils/directive';
 
@@ -29,7 +30,9 @@
 		<nav class:active on:click={handleClickOutside}>
 			<ul class="menu" on:click|stopPropagation>
 				<li class="with-sub-menu">
-					<a use:detectActiveLink href="/realizacje" class="link">Realizacje</a>
+					<a href="/realizacje" class="link" class:active={$page.url.pathname === '/realizacje'}
+						>Realizacje</a
+					>
 					<ul class="sub-menu left">
 						<li>
 							<a href="/realizacje/domki-drewniane" class="link">Domki drewniane</a>
@@ -49,14 +52,11 @@
 
 <style lang="scss">
 	header {
-		position: sticky;
+		position: fixed;
+		width: 100%;
 		top: 0;
 		left: 0;
-		background-color: var(--background);
-
-		@include dark {
-			background-color: #282a30;
-		}
+		background-color: var(--header-background);
 	}
 
 	.container {
@@ -121,13 +121,12 @@
 			top: 50px;
 			min-width: 220px;
 			padding: 20px 25px;
-			background-color: var(--background);
+			background-color: var(--header-background);
 			border-radius: 10px;
 			box-shadow: -2px 7px 33px -5px rgb(199, 199, 199);
 
 			@include dark {
 				box-shadow: 0 2px 10px rgba(29, 29, 29, 0.7);
-				background-color: #282a30;
 			}
 
 			&.active {
@@ -183,27 +182,37 @@
 		color: var(--color);
 		text-decoration: none;
 		font-size: 1.2em;
+		border-bottom: 1px solid transparent;
 
 		&:hover,
 		&:focus {
-			border-bottom: 1px solid var(--primary-color);
+			border-color: var(--primary-color);
 		}
 
 		&.active {
-			border-bottom: 2px solid var(--primary-color);
+			&:hover {
+				border-color: transparent;
+			}
+
+			&::before {
+				content: '•';
+				margin-right: 2px;
+				color: var(--primary-color);
+			}
 		}
 	}
 
 	.burger {
 		position: absolute;
 		z-index: 3;
-		top: 15px;
-		right: 15px;
+		top: 20px;
+		right: 20px;
 		padding: 8px;
 		display: none;
-		border: 1px solid var(--color);
+		border: 2px solid var(--color);
 		border-radius: 10px;
 		background: transparent;
+		font-weight: 700;
 		color: var(--color);
 
 		@include mobile {

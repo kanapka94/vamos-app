@@ -1,4 +1,5 @@
 <script>
+	import ContactSection from '$lib/components/ContactSection.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import '$lib/styles/global.css';
@@ -20,9 +21,24 @@
 	<slot />
 </main>
 
+<ContactSection />
 <Footer />
 
-<style>
+<style lang="scss">
+	:global(body) {
+		margin-top: 150px;
+
+		@include mobile {
+			margin-top: 100px;
+		}
+	}
+
+	:global(img.icon) {
+		@include dark {
+			filter: invert(0.7);
+		}
+	}
+
 	main {
 		flex: 1 0 auto;
 	}
