@@ -4,6 +4,18 @@
 	box-sizing: border-box;
 }
 
+:root[data-theme='light-theme'] {
+	--background: whitesmoke;
+	--color: #1e1e1e;
+	--primary-color: #be1e2e;
+}
+
+:root[data-theme='dark-theme'] {
+	--background: #1e1f21;
+	--color: whitesmoke;
+	--primary-color: #be1e2e;
+}
+
 html,
 body {
 	height: 100%;
@@ -15,23 +27,13 @@ body {
 }
 
 body {
-	background-color: whitesmoke;
+	background-color: var(--background);
+	color: var(--color);
 	font-family: 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-	body {
-		background-color: #1e1e1e;
-		color: whitesmoke;
-	}
-
-	a {
-		color: #bf1e2e;
-	}
-}
-
 a[target='_blank']::after {
-	content: url('./assets/external_link.svg');
+	content: url('$lib/assets/external_link.svg');
 }
 
 .main-container {
