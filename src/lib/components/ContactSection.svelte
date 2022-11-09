@@ -50,11 +50,11 @@
 <style lang="scss">
 	section {
 		font-size: 1.2em;
-		padding: 30px;
+		padding: 2em 0;
 		background-color: var(--contact-background);
 
 		@include mobile {
-			padding: 30px 10px;
+			padding: 1em 0;
 		}
 	}
 

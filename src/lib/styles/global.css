@@ -40,6 +40,11 @@ body {
 	font-family: 'Inter', sans-serif;
 }
 
+p,
+a {
+	font-size: 1.2em;
+}
+
 a[target='_blank']::after {
 	content: url('$lib/assets/external_link.svg');
 }

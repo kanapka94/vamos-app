@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { EditorBlock } from '$lib/types/api';
 	import HeadingBlock from './HeadingBlock.svelte';
+	import ImageBlock from './ImageBlock.svelte';
 	import NestedListBlock from './NestedListBlock.svelte';
 	import ParagraphBlock from './ParagraphBlock.svelte';
 
@@ -13,6 +14,6 @@
 	<ParagraphBlock {block} />
 {:else if block.type === 'nestedlist'}
 	<NestedListBlock {block} />
-{:else}a{/if}
-
-{JSON.stringify(block)}
+{:else if block.type === 'image'}
+	<ImageBlock {block} />
+{:else}{/if}

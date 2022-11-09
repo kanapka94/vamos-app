@@ -49,6 +49,12 @@
 
 	main {
 		flex: 1 0 auto;
+		padding-bottom: 2em;
+
+		@include mobile {
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
 
 		:global(a) {
 			color: var(--primary-color);

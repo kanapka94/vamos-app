@@ -7,6 +7,4 @@
 
 {#each content.blocks as block}
 	<EditorBlockFactory {block} />
-	<br />
-	<br />
 {/each}

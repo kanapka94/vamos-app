@@ -19,7 +19,7 @@ export interface Page {
 	images: PageImage[];
 }
 
-interface PageImage {
+export interface PageImage {
 	directus_files_id: string;
 }
 
