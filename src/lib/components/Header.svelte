@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import logo from '$lib/assets/vamos_logo.png';
-	import { clickOutside } from '$lib/utils/directive';
 
 	interface Menu {
 		id: string;

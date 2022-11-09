@@ -17,7 +17,8 @@ const getSearchQuery = () => ({
 					}
 				}
 			]
-		}
+		},
+		fields: '*,images.directus_files_id'
 	}
 });
 

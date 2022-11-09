@@ -22,7 +22,8 @@ const getSearchQuery = (slug: string) => ({
 					}
 				}
 			]
-		}
+		},
+		fields: '*,images.directus_files_id'
 	}
 });
 

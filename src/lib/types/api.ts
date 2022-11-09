@@ -16,6 +16,11 @@ export interface Page {
 	tags: string[];
 	date_published: string;
 	slug: string | null;
+	images: PageImage[];
+}
+
+interface PageImage {
+	directus_files_id: string;
 }
 
 export interface Content {
