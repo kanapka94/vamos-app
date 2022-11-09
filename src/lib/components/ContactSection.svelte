@@ -1,5 +1,5 @@
 <script>
-	import Heading from './typography/Heading.svelte';
+	import Heading from './Heading.svelte';
 	import mailIcon from '$lib/assets/mail.svg';
 	import phoneIcon from '$lib/assets/phone.svg';
 	import mapsIcon from '$lib/assets/maps.svg';

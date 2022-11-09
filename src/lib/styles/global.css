@@ -10,6 +10,8 @@
 	--primary-color: #be1e2e;
 	--header-background: #e9e0d5;
 	--contact-background: #eeeeee;
+	--mark-background: #c99d86;
+	--mark-color: #1e1e1e;
 }
 
 :root[data-theme='dark-theme'] {
@@ -18,6 +20,8 @@
 	--primary-color: #be1e2e;
 	--header-background: #282a30;
 	--contact-background: #303437;
+	--mark-background: #7a4d36;
+	--mark-color: whitesmoke;
 }
 
 html,

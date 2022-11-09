@@ -1,8 +1,8 @@
 <script lang="ts">
-	export let tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = 'h1';
+	export let level: '1' | '2' | '3' | '4' | '5' | '6' = '1';
 </script>
 
-<svelte:element this={tag}>
+<svelte:element this={`h${level}`}>
 	<slot />
 </svelte:element>
 

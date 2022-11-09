@@ -42,7 +42,22 @@
 		}
 	}
 
+	:global(mark) {
+		background-color: var(--mark-background);
+		color: var(--mark-color);
+	}
+
 	main {
 		flex: 1 0 auto;
+
+		:global(a) {
+			color: var(--primary-color);
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
 	}
 </style>
