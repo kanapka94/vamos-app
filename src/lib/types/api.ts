@@ -18,11 +18,13 @@ export interface Page {
 	date_updated: string;
 	title: string;
 	content: Content;
-	tags: string[];
+	tags: Tag[];
 	date_published: string;
 	slug: string | null;
 	images: PageImage[];
 }
+
+export type Tag = string;
 
 export interface PageImage {
 	directus_files_id: Image;
