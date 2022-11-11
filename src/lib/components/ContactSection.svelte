@@ -27,7 +27,7 @@
 				<h3>Dane firmy</h3>
 				<ul>
 					<li>Lasowice 7</li>
-					<li>26-630 Jedlinia Letnisko</li>
+					<li>26-630 Jedlnia Letnisko</li>
 					<li>
 						<img src={mapsIcon} alt="" aria-hidden="true" class="icon" />
 						<a href="https://goo.gl/maps/Ff7tRb1VtpK9dBDF7" target="_blank" rel="noreferrer"
@@ -39,8 +39,8 @@
 			<div class="column">
 				<h3>Media</h3>
 				<ul>
-					<li>facebook</li>
-					<li>instagram</li>
+					<li class="soon"><span>facebook</span> <sup>wkrótce</sup></li>
+					<li class="soon"><span>instagram</span> <sup>wkrótce</sup></li>
 				</ul>
 			</div>
 		</div>
@@ -96,6 +96,17 @@
 		display: flex;
 		align-items: center;
 		padding: 5px 0;
+	}
+
+	.soon {
+		span {
+			opacity: 0.5;
+		}
+
+		sup {
+			font-size: 0.8rem;
+			color: var(--primary-color);
+		}
 	}
 
 	.icon {
