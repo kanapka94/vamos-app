@@ -22,14 +22,8 @@
 		active = !active;
 	}
 
-	function handleClickOutside() {
+	function closeMenu() {
 		active = false;
-	}
-
-	function detectActiveLink(node: HTMLElement) {
-		if (node.getAttribute('href') === window.location.pathname) {
-			node.classList.add('active');
-		}
 	}
 </script>
 
@@ -44,8 +38,11 @@
 				{#each menu.items as item, index}
 					{#if item.submenu}
 						<li class="with-sub-menu">
-							<a href={item.url} class="link" class:active={$page.url.pathname === item.url}
-								>{item.label}</a
+							<a
+								href={item.url}
+								class="link"
+								class:active={$page.url.pathname.includes(item.url)}
+								on:click={closeMenu}>{item.label}</a
 							>
 							<ul class="sub-menu" class:right={index === menu.items.length - 1}>
 								{#each item.submenu as subItem}
@@ -53,16 +50,22 @@
 										<a
 											href={subItem.url}
 											class="link"
-											class:active={$page.url.pathname === subItem.url}>{subItem.label}</a
+											class:active={$page.url.pathname === subItem.url}
+											on:click={closeMenu}
 										>
+											{subItem.label}
+										</a>
 									</li>
 								{/each}
 							</ul>
 						</li>
 					{:else}
 						<li>
-							<a href={item.url} class="link" class:active={$page.url.pathname === item.url}
-								>{item.label}</a
+							<a
+								href={item.url}
+								class="link"
+								class:active={$page.url.pathname.includes(item.url)}
+								on:click={closeMenu}>{item.label}</a
 							>
 						</li>
 					{/if}
@@ -146,6 +149,8 @@
 			padding: 20px 10px;
 			background-color: var(--header-background);
 			border-radius: 10px;
+			border: 1px solid #c6c6c6;
+			border-top: 1px solid rgb(210, 210, 210);
 			box-shadow: -2px 7px 33px -5px rgb(199, 199, 199);
 
 			@include dark {
@@ -201,7 +206,6 @@
 	.link {
 		color: var(--color);
 		text-decoration: none;
-		font-size: 1.2em;
 		border-bottom: 1px solid transparent;
 
 		&:hover,

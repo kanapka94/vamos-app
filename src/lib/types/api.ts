@@ -3,6 +3,11 @@ export interface Page {
 	status: Status;
 }
 
+export type BlogPost = Omit<Page, 'images' | 'image'> & {
+	excerpt: string;
+	image: { id: string; description: string | null };
+};
+
 export interface Page {
 	id: number;
 	status: Status;
@@ -20,7 +25,14 @@ export interface Page {
 }
 
 export interface PageImage {
-	directus_files_id: string;
+	directus_files_id: Image;
+}
+
+export interface Image {
+	id: string;
+	description: string | null;
+	width: number;
+	height: number;
 }
 
 export interface Content {

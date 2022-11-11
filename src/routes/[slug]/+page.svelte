@@ -1,11 +1,6 @@
 <script lang="ts">
-	import type { Status } from '$lib/types/api';
+	import Page from '$lib/components/Page.svelte';
 	import type { PageServerData } from './$types';
-
-	interface Page {
-		id: number;
-		status: Status;
-	}
 
 	export let data: PageServerData;
 </script>
@@ -13,3 +8,5 @@
 <svelte:head>
 	<title>{data.page.title} - Vamos</title>
 </svelte:head>
+
+<Page page={data.page} />

@@ -12,13 +12,19 @@ const getSearchQuery = () => ({
 					}
 				},
 				{
+					date_published: {
+						_lte: new Date().toISOString()
+					}
+				},
+				{
 					sort: {
 						_eq: 1
 					}
 				}
 			]
 		},
-		fields: '*,images.directus_files_id'
+		fields:
+			'*,images.directus_files_id.id, images.directus_files_id.description,images.directus_files_id.width,images.directus_files_id.height'
 	}
 });
 

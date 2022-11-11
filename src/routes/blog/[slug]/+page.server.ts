@@ -1,4 +1,4 @@
-import type { Page } from '$lib/types/api';
+import type { BlogPost } from '$lib/types/api';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
@@ -22,14 +22,12 @@ const getSearchQuery = (slug: string) => ({
 					}
 				}
 			]
-		},
-		fields:
-			'*,images.directus_files_id.id, images.directus_files_id.description,images.directus_files_id.width,images.directus_files_id.height'
+		}
 	}
 });
 
 export const load: PageServerLoad = async ({ params }) => {
-	const response = await fetch(`${import.meta.env.VITE_API_URL}/items/pages`, {
+	const response = await fetch(`${import.meta.env.VITE_API_URL}/items/posts`, {
 		method: 'SEARCH',
 		headers: {
 			'Content-Type': 'application/json;charset=utf-8'
@@ -40,10 +38,10 @@ export const load: PageServerLoad = async ({ params }) => {
 	const { data } = await response.json();
 
 	if (!data[0]) {
-		throw error(404, 'Nie odnaleziono strony');
+		throw error(404, 'Nie odnaleziono wpisu');
 	}
 
 	return {
-		page: data[0] as Page
+		page: data[0] as BlogPost
 	};
 };

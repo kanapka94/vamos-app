@@ -49,7 +49,6 @@
 
 <style lang="scss">
 	section {
-		font-size: 1.2em;
 		padding: 2em 0;
 		background-color: var(--contact-background);
 
@@ -79,7 +78,6 @@
 	a {
 		color: var(--color);
 		text-decoration: none;
-		font-size: 1em;
 		border-bottom: 1px solid transparent;
 
 		&:hover,

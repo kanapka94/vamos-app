@@ -29,16 +29,17 @@
 	<div class="pswp-gallery" id={galleryID}>
 		{#each photos as photo}
 			<a
-				href={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id}?width=1200&height=800`}
-				data-pswp-width="1200px"
-				data-pswp-height="800px"
+				href={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}`}
+				data-pswp-width={photo.directus_files_id.width}
+				data-pswp-height={photo.directus_files_id.height}
+				data-pswp-alt={photo.directus_files_id.description}
 				target="_blank"
 				rel="noreferrer"
 				class="image"
 			>
 				<img
-					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id}?width=200&height=200&fit=cover`}
-					alt=""
+					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=200&height=200&fit=cover`}
+					alt={photo.directus_files_id.description}
 					class="thumbnail"
 				/>
 			</a>
