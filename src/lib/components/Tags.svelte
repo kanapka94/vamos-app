@@ -22,6 +22,7 @@
 		background-color: var(--primary-color);
 		border-radius: 10px;
 		padding: 3px 10px;
-		margin: 0 5px;
+		margin: 5px;
+		color: #fff;
 	}
 </style>

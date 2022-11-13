@@ -144,7 +144,7 @@
 			display: none;
 			position: absolute;
 			top: 50px;
-			left: 15px;
+			left: -25px;
 			min-width: 220px;
 			padding: 20px 10px;
 			background-color: var(--header-background);
