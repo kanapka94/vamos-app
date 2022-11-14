@@ -8,13 +8,20 @@
 
 {#if page}
 	<h1>{page.title}</h1>
-	<Slider photos={page.images} />
 	<PageContent content={page.content} />
+	<Slider photos={page.images} />
 {/if}
 
 <style lang="scss">
 	h1 {
+		font-size: 3rem;
 		margin-bottom: 2em;
+
+		&::before {
+			content: '';
+			margin-right: 1rem;
+			border-left: 0.8rem solid var(--color);
+		}
 
 		@include mobile {
 			margin-bottom: 1em;

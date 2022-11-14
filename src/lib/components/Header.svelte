@@ -78,6 +78,7 @@
 <style lang="scss">
 	header {
 		position: fixed;
+		z-index: 2;
 		width: 100%;
 		top: 0;
 		left: 0;
@@ -128,6 +129,7 @@
 			top: 0;
 			right: 0;
 			padding-top: 70px;
+			padding-left: 15px;
 			flex-direction: column;
 			background-color: var(--background);
 			transform: translateX(100%);
@@ -206,16 +208,33 @@
 	.link {
 		color: var(--color);
 		text-decoration: none;
-		border-bottom: 1px solid transparent;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 11px;
+			left: 15px;
+			width: calc(100% - 30px);
+			height: 2px;
+			background-color: var(--primary-color);
+			transform: translateY(5px) scale(0);
+			transition: 0.15s ease-in-out;
+
+			@include mobile {
+				display: none;
+			}
+		}
 
 		&:hover,
 		&:focus {
-			border-color: var(--primary-color);
+			&::after {
+				transform: translateY(0) scale(1);
+			}
 		}
 
 		&.active {
 			&:hover {
-				border-color: transparent;
+				transform: translateY(5px) scale(0);
 			}
 
 			&::before {

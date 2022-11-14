@@ -26,6 +26,7 @@
 </script>
 
 {#if photosLength > 0}
+	<h2>Galeria zdjęć</h2>
 	<div class="pswp-gallery" id={galleryID}>
 		{#each photos as photo}
 			<a
@@ -48,6 +49,10 @@
 {/if}
 
 <style lang="scss">
+	h2 {
+		margin: 4rem 0 2rem;
+	}
+
 	.pswp-gallery {
 		margin-bottom: 2em;
 

@@ -14,7 +14,27 @@
 
 <style lang="scss">
 	figure {
-		margin: 2rem;
+		position: relative;
+		z-index: 1;
+		margin: 6rem 2rem;
+
+		&::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: -25px;
+			left: 0;
+			width: 100vw;
+			height: calc(100% + 50px);
+			display: block;
+			background: var(--image-wide-background);
+			opacity: 0.5;
+			transform: translateX(calc(-50% + 512px));
+
+			@include small-desktop {
+				transform: translateX(-52px);
+			}
+		}
 	}
 
 	figcaption {
@@ -25,8 +45,9 @@
 
 	img {
 		max-width: 100%;
-		max-height: 60vh;
+		max-height: 50vh;
 		display: block;
 		margin: 0 auto;
+		border-radius: 10px;
 	}
 </style>

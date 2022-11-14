@@ -12,6 +12,7 @@
 	--contact-background: #eeeeee;
 	--mark-background: #c99d86;
 	--mark-color: #1e1e1e;
+	--image-wide-background: #f1ebe5;
 }
 
 :root[data-theme='dark-theme'] {
@@ -23,6 +24,7 @@
 	--contact-background: #303437;
 	--mark-background: #7a4d36;
 	--mark-color: whitesmoke;
+	--image-wide-background: #2a2a2a;
 }
 
 html,
@@ -45,6 +47,7 @@ p,
 a,
 li {
 	font-size: 1.2rem;
+	line-height: 2rem;
 }
 
 a {
