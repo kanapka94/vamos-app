@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { PUBLIC_VITE_API_URL } from '$env/static/public';
 	import Page from '$lib/components/Page.svelte';
+	import noPostsIcon from '$lib/assets/waiting_for_posts.svg';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -12,20 +13,27 @@
 
 <Page page={data.page} />
 
-<div class="post-thumbnails">
-	{#each data.posts as post}
-		<a href={`/blog/${post.slug}`} class="post-thumbnail">
-			{#if post.image}
-				<img
-					src={`${PUBLIC_VITE_API_URL}/assets/${post.image.id}?width=300&height=200&fit=cover`}
-					alt={post.image.description}
-					class="thumbnail"
-				/>
-			{/if}
-			<p class="title">{post.title}</p>
-		</a>
-	{/each}
-</div>
+{#if data.posts && data.posts.length > 0}
+	<div class="post-thumbnails">
+		{#each data.posts as post}
+			<a href={`/blog/${post.slug}`} class="post-thumbnail">
+				{#if post.image}
+					<img
+						src={`${PUBLIC_VITE_API_URL}/assets/${post.image.id}?width=300&height=200&fit=cover`}
+						alt={post.image.description}
+						class="thumbnail"
+					/>
+				{/if}
+				<p class="title">{post.title}</p>
+			</a>
+		{/each}
+	</div>
+{:else}
+	<section class="no-posts-section">
+		<img src={noPostsIcon} class="no-posts" />
+		<p>Niebawem pojawią się tutaj wpisy...</p>
+	</section>
+{/if}
 
 <style lang="scss">
 	.post-thumbnails {
@@ -69,5 +77,18 @@
 				font-size: inherit;
 			}
 		}
+	}
+
+	.no-posts-section {
+		text-align: center;
+
+		p {
+			font-weight: bold;
+		}
+	}
+
+	.no-posts {
+		max-width: 350px;
+		margin: 30px auto;
 	}
 </style>
