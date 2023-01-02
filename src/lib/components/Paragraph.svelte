@@ -4,7 +4,10 @@
 	export let tunes: Tunes = {};
 </script>
 
-<p class:right={tunes.alignmentTune === 'right'} class:center={tunes.alignmentTune === 'center'}>
+<p
+	class:right={tunes.alignmentTune.alignment === 'right'}
+	class:center={tunes.alignmentTune.alignment === 'center'}
+>
 	<slot />
 </p>
 

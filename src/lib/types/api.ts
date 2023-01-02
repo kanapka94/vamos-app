@@ -80,7 +80,9 @@ export interface Item {
 }
 
 export interface Tunes {
-	alignmentTune: Alignment;
+	alignmentTune: {
+		alignment: Alignment;
+	};
 }
 
 export type Alignment = 'left' | 'right' | 'center';

@@ -4,7 +4,7 @@
 	export let tags: Tag[];
 </script>
 
-{#if tags.length}
+{#if tags && tags.length}
 	<div class="tags">
 		{#each tags as tag}
 			<div class="tag">{tag}</div>

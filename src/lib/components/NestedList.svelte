@@ -17,7 +17,7 @@
 	{/each}
 </svelte:element>
 
-<style>
+<style lang="scss">
 	ol {
 		counter-reset: item;
 		list-style: none;
@@ -30,5 +30,11 @@
 
 	ol ol li:before {
 		content: counters(item, '.') ' ';
+	}
+
+	ul li {
+		&::before {
+			content: '';
+		}
 	}
 </style>

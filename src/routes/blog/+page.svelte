@@ -15,11 +15,13 @@
 <div class="post-thumbnails">
 	{#each data.posts as post}
 		<a href={`/blog/${post.slug}`} class="post-thumbnail">
-			<img
-				src={`${PUBLIC_VITE_API_URL}/assets/${post.image.id}?width=300&height=200&fit=cover`}
-				alt={post.image.description}
-				class="thumbnail"
-			/>
+			{#if post.image}
+				<img
+					src={`${PUBLIC_VITE_API_URL}/assets/${post.image.id}?width=300&height=200&fit=cover`}
+					alt={post.image.description}
+					class="thumbnail"
+				/>
+			{/if}
 			<p class="title">{post.title}</p>
 		</a>
 	{/each}

@@ -5,6 +5,6 @@
 	export let block: EditorBlock;
 </script>
 
-<Heading level={block.data.level}>
+<Heading level={block.data.level} tunes={block.tunes}>
 	{@html block.data.text}
 </Heading>
