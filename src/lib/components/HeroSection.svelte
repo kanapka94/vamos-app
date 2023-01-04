@@ -21,7 +21,6 @@
 		position: relative;
 		height: 35vh;
 		margin-bottom: 3rem;
-		overflow: hidden;
 	}
 
 	.no-images {

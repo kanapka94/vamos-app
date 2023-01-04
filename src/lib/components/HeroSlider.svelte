@@ -57,7 +57,11 @@
 				<img
 					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1130&height=550&fit=cover`}
 					alt={photo.directus_files_id.description}
-					class="thumbnail"
+					class="blur-image"
+				/>
+				<img
+					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1130&height=550&fit=cover`}
+					alt={photo.directus_files_id.description}
 				/>
 			</a>
 		{/each}
@@ -68,7 +72,11 @@
 
 <style lang="scss">
 	.pswp-gallery {
-		opacity: 0.3;
+		opacity: 0.6;
+
+		@include dark {
+			opacity: 0.3;
+		}
 	}
 
 	.image {
@@ -86,7 +94,7 @@
 		&.active {
 			opacity: 1;
 			visibility: visible;
-			transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+			transition: opacity cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
 		}
 
 		img {
@@ -94,6 +102,15 @@
 			height: 35vh;
 			object-fit: cover;
 		}
+	}
+
+	.blur-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		filter: blur(26px);
+		transform: scale(1.2);
+		opacity: 0.2;
 	}
 
 	button {
