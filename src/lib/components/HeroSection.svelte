@@ -7,7 +7,7 @@
 	export let images: PageImage[] = [];
 </script>
 
-<section class="hero" class:no-images={images.length === 0}>
+<section class="hero" class:no-images={images && images.length === 0}>
 	<div class="title">
 		<PageTitle {title} />
 	</div>
@@ -26,6 +26,11 @@
 
 	.no-images {
 		height: 13vh;
+		min-height: 180px;
+
+		@include mobile {
+			min-height: 200px;
+		}
 	}
 
 	.title {

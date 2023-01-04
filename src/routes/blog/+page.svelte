@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { PUBLIC_VITE_API_URL } from '$env/static/public';
-	import Page from '$lib/components/Page.svelte';
 	import noPostsIcon from '$lib/assets/waiting_for_posts.svg';
 	import type { PageServerData } from './$types';
+	import StaticPage from '$lib/components/StaticPage.svelte';
 
 	export let data: PageServerData;
 </script>
@@ -11,7 +11,7 @@
 	<title>Vamos Blog</title>
 </svelte:head>
 
-<Page page={data.page} />
+<StaticPage page={data.page} />
 
 {#if data.posts && data.posts.length > 0}
 	<div class="post-thumbnails">
