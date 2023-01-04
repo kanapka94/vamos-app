@@ -78,7 +78,7 @@
 <style lang="scss">
 	header {
 		position: fixed;
-		z-index: 2;
+		z-index: 100;
 		width: 100%;
 		top: 0;
 		left: 0;
@@ -94,7 +94,7 @@
 	nav {
 		@include mobile {
 			position: fixed;
-			z-index: 2;
+			z-index: 100;
 			top: 0;
 			left: 0;
 			width: 100vw;
@@ -249,7 +249,7 @@
 
 	.burger {
 		position: absolute;
-		z-index: 3;
+		z-index: 101;
 		top: 20px;
 		right: 20px;
 		padding: 8px;
