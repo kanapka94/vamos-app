@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Page from '$lib/components/Page.svelte';
+	import StaticPage from '$lib/components/StaticPage.svelte';
 	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
@@ -9,4 +10,4 @@
 	<title>Strona główna - Vamos</title>
 </svelte:head>
 
-<Page page={data.page} />
+<StaticPage page={data.page} />

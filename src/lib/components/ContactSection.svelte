@@ -3,6 +3,8 @@
 	import mailIcon from '$lib/assets/mail.svg';
 	import phoneIcon from '$lib/assets/phone.svg';
 	import mapsIcon from '$lib/assets/maps.svg';
+	import facebookIcon from '$lib/assets/facebook_icon.svg';
+	import instagramIcon from '$lib/assets/instagram_icon.svg';
 </script>
 
 <section>
@@ -39,8 +41,16 @@
 			<div class="column">
 				<h3>Media</h3>
 				<ul>
-					<li class="soon"><span>facebook</span> <sup>wkrótce</sup></li>
-					<li class="soon"><span>instagram</span> <sup>wkrótce</sup></li>
+					<li>
+						<img src={facebookIcon} alt="" class="icon" aria-hidden="true" />
+						<a href="https://www.facebook.com/people/Vamos-wood/100086320336582/" target="_blank"
+							>facebook</a
+						>
+					</li>
+					<li>
+						<img src={instagramIcon} alt="" class="icon" aria-hidden="true" />
+						<a href="https://www.instagram.com/vamos_wood/" target="_blank">instagram</a>
+					</li>
 				</ul>
 			</div>
 		</div>

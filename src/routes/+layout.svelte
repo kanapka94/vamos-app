@@ -29,10 +29,10 @@
 
 <style lang="scss">
 	:global(body) {
-		margin-top: 150px;
+		margin-top: 100px;
 
 		@include mobile {
-			margin-top: 100px;
+			margin-top: 37px;
 		}
 	}
 
