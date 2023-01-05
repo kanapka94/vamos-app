@@ -12,6 +12,8 @@
 
 	let activeImageIndex = 0;
 
+	let intervalId;
+
 	onMount(() => {
 		if (!photos.length) {
 			return;
@@ -24,9 +26,23 @@
 		});
 
 		lightbox.init();
+
+		intervalId = setInterval(() => changeActiveImage(1), 3500);
 	});
 
 	const lastImageIndex = photos.length - 1;
+
+	function handleClickNext() {
+		changeActiveImage(1);
+		clearInterval(intervalId);
+		intervalId = setInterval(() => changeActiveImage(1), 3500);
+	}
+
+	function handleClickPrev() {
+		changeActiveImage(-1);
+		clearInterval(intervalId);
+		intervalId = setInterval(() => changeActiveImage(1), 3500);
+	}
 
 	function changeActiveImage(step: number) {
 		activeImageIndex += step;
@@ -66,8 +82,8 @@
 			</a>
 		{/each}
 	</div>
-	<button class="prev" on:click={() => changeActiveImage(-1)}>➜</button>
-	<button class="next" on:click={() => changeActiveImage(1)}>➜</button>
+	<button class="prev" on:click={handleClickPrev}>➜</button>
+	<button class="next" on:click={handleClickNext}>➜</button>
 {/if}
 
 <style lang="scss">
@@ -94,7 +110,7 @@
 		&.active {
 			opacity: 1;
 			visibility: visible;
-			transition: opacity cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+			transition: opacity cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.5s;
 		}
 
 		img {
