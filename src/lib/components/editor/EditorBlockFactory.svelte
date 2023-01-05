@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { EditorBlock } from '$lib/types/api';
+	import DelimiterBlock from './DelimiterBlock.svelte';
 	import HeadingBlock from './HeadingBlock.svelte';
 	import ImageBlock from './ImageBlock.svelte';
 	import NestedListBlock from './NestedListBlock.svelte';
@@ -16,4 +17,6 @@
 	<NestedListBlock {block} />
 {:else if block.type === 'image'}
 	<ImageBlock {block} />
+{:else if block.type === 'delimiter'}
+	<DelimiterBlock />
 {:else}{/if}
