@@ -25,6 +25,10 @@
 			pswpModule: () => import('photoswipe')
 		});
 
+		lightbox.addFilter('useContentPlaceholder', (useContentPlaceholder, content) => {
+			return false;
+		});
+
 		lightbox.init();
 
 		intervalId = setInterval(() => changeActiveImage(1), 3500);
@@ -57,7 +61,7 @@
 	}
 
 	function openGallery() {
-		lightbox.loadAndOpen(0);
+		document.querySelector('.pswp-gallery a').click();
 	}
 </script>
 
