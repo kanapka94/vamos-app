@@ -19,8 +19,12 @@
 <style lang="scss">
 	.hero {
 		position: relative;
-		height: 35vh;
+		height: 40vh;
 		margin-bottom: 3rem;
+
+		@include mobile {
+			height: 35vh;
+		}
 	}
 
 	.no-images {
