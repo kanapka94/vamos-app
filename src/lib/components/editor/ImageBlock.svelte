@@ -24,7 +24,7 @@
 			z-index: -1;
 			left: 0;
 			width: 100vw;
-			height: calc(100% - 35px);
+			height: 100%;
 			display: block;
 			background: var(--image-wide-background);
 			opacity: 0.5;
@@ -33,6 +33,10 @@
 			@include small-desktop {
 				transform: translateX(-52px);
 			}
+		}
+
+		&:has(figcaption) {
+			padding-bottom: 1.5rem;
 		}
 	}
 

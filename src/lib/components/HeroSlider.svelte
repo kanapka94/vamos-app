@@ -71,12 +71,12 @@
 				class:active={activeImageIndex === index}
 			>
 				<img
-					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1024&height=550&fit=cover`}
+					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1024&height=650&fit=cover`}
 					alt={photo.directus_files_id.description}
 					class="blur-image"
 				/>
 				<img
-					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1024&height=550&fit=cover`}
+					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1024&height=650&fit=cover`}
 					alt={photo.directus_files_id.description}
 				/>
 			</a>
