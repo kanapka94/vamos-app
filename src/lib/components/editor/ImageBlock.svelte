@@ -28,10 +28,10 @@
 			display: block;
 			background: var(--image-wide-background);
 			opacity: 0.5;
-			transform: translateX(calc(-50% + 512px));
+			transform: translateX(calc(-50% + 490px));
 
 			@include small-desktop {
-				transform: translateX(-52px);
+				transform: translateX(-22px);
 			}
 		}
 
