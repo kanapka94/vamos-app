@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import logo from '$lib/assets/vamos_logo.png';
+	import logoLight from '$lib/assets/vamos_logo_light.png';
 
 	interface Menu {
 		id: string;
@@ -30,7 +31,8 @@
 <header>
 	<div class="container global-container">
 		<a href="/" title="Strona główna">
-			<img src={logo} alt="Vamos logo" class="logo" />
+			<img src={logo} alt="Vamos logo" class="logo logo-dark" />
+			<img src={logoLight} alt="Vamos logo" class="logo logo-light" />
 		</a>
 		<button class="burger" on:click={handleBurgerClick}>Menu</button>
 		<nav class:active>
@@ -202,6 +204,20 @@
 
 		@include mobile {
 			width: 65px;
+		}
+
+		@include dark {
+			&-dark {
+				display: none;
+			}
+		}
+	}
+
+	.logo-light {
+		display: none;
+
+		@include dark {
+			display: block;
 		}
 	}
 

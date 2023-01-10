@@ -13,6 +13,7 @@
 	let activeImageIndex = 0;
 	let intervalId;
 	let lightbox;
+	const DELAY = 4000;
 
 	onMount(() => {
 		if (!photos.length) {
@@ -31,7 +32,7 @@
 
 		lightbox.init();
 
-		intervalId = setInterval(() => changeActiveImage(1), 3500);
+		intervalId = setInterval(() => changeActiveImage(1), DELAY);
 	});
 
 	const lastImageIndex = photos.length - 1;
@@ -39,13 +40,13 @@
 	function handleClickNext() {
 		changeActiveImage(1);
 		clearInterval(intervalId);
-		intervalId = setInterval(() => changeActiveImage(1), 3500);
+		intervalId = setInterval(() => changeActiveImage(1), DELAY);
 	}
 
 	function handleClickPrev() {
 		changeActiveImage(-1);
 		clearInterval(intervalId);
-		intervalId = setInterval(() => changeActiveImage(1), 3500);
+		intervalId = setInterval(() => changeActiveImage(1), DELAY);
 	}
 
 	function changeActiveImage(step: number) {
@@ -61,39 +62,37 @@
 	}
 
 	function openGallery() {
-		document.querySelector('.pswp-gallery a').click();
+		document.querySelector('.pswp-gallery a.active').click();
 	}
 </script>
 
-{#if photosLength > 0}
-	<div class="pswp-gallery" id={galleryID}>
-		<button class="galery-open" on:click={openGallery}>Galeria</button>
-		{#each photos as photo, index}
-			<a
-				href={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}`}
-				data-pswp-width={photo.directus_files_id.width}
-				data-pswp-height={photo.directus_files_id.height}
-				data-pswp-alt={photo.directus_files_id.description}
-				target="_blank"
-				rel="noreferrer"
-				class="image"
-				class:active={activeImageIndex === index}
-			>
-				<img
-					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1280&height=650&fit=cover`}
-					alt={photo.directus_files_id.description}
-					class="blur-image"
-				/>
-				<img
-					src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1280&height=650&fit=cover`}
-					alt={photo.directus_files_id.description}
-				/>
-			</a>
-		{/each}
-	</div>
-	<button class="gallery-nav prev" on:click={handleClickPrev}>➜</button>
-	<button class="gallery-nav next" on:click={handleClickNext}>➜</button>
-{/if}
+<div class="pswp-gallery" id={galleryID}>
+	<button class="button galery-open" on:click={openGallery}>Galeria</button>
+	{#each photos as photo, index}
+		<a
+			href={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}`}
+			data-pswp-width={photo.directus_files_id.width}
+			data-pswp-height={photo.directus_files_id.height}
+			data-pswp-alt={photo.directus_files_id.description}
+			target="_blank"
+			rel="noreferrer"
+			class="image"
+			class:active={activeImageIndex === index}
+		>
+			<img
+				src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1440&height=1080&fit=cover`}
+				alt={photo.directus_files_id.description}
+				class="blur-image"
+			/>
+			<img
+				src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1440&height=1080&fit=cover`}
+				alt={photo.directus_files_id.description}
+			/>
+		</a>
+	{/each}
+</div>
+<button class="button gallery-nav prev" on:click={handleClickPrev}>➜</button>
+<button class="button gallery-nav next" on:click={handleClickNext}>➜</button>
 
 <style lang="scss">
 	.pswp-gallery {
@@ -108,6 +107,7 @@
 		opacity: 0;
 		visibility: hidden;
 		transform: translateX(-50%);
+		transition: cubic-bezier(0.57, 0.21, 0.69, 1.25) 1s;
 
 		&::after {
 			content: '';
@@ -116,18 +116,13 @@
 		&.active {
 			opacity: 1;
 			visibility: visible;
-			transition: opacity cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.5s;
 		}
 
 		img {
 			width: 100%;
 			height: 40vh;
 			object-fit: cover;
-			border-radius: 0 0 10px 10px;
-
-			@include mobile {
-				height: 35vh;
-			}
+			border-radius: 10px;
 		}
 
 		@include small-desktop {
@@ -140,9 +135,28 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		filter: blur(26px);
-		transform: scale(1.2);
+		filter: blur(35px);
+		transform: scale(1.3);
 		opacity: 0.2;
+	}
+
+	.button {
+		border: none;
+		border-radius: 10px;
+		padding: 15px;
+		background-color: rgba(0, 0, 0, 0.7);
+		color: var(--color);
+		cursor: pointer;
+		transition: cubic-bezier(0.57, 0.21, 0.69, 1.25) 0.2s;
+
+		&:hover {
+			box-shadow: 0 0 0 3px var(--color);
+			opacity: 0.9;
+		}
+
+		@include light {
+			background-color: rgba(255, 255, 255, 0.9);
+		}
 	}
 
 	.galery-open {
@@ -150,18 +164,7 @@
 		bottom: 10px;
 		right: 10px;
 		z-index: 2;
-		padding: 15px;
-		border: none;
-		border-radius: 10px;
-		background-color: rgba(0, 0, 0, 0.7);
 		font-weight: bold;
-		color: var(--color);
-		cursor: pointer;
-
-		&:hover {
-			background-color: rgba(114, 6, 6, 0.8);
-			transition: linear background-color 0.3s;
-		}
 	}
 
 	.gallery-nav {
@@ -169,17 +172,6 @@
 		z-index: 2;
 		bottom: 10px;
 		left: 10px;
-		border-radius: 10px;
-		padding: 15px;
-		border: none;
-		background-color: rgba(0, 0, 0, 0.7);
-		color: var(--color);
-		cursor: pointer;
-
-		&:hover {
-			background-color: rgba(114, 6, 6, 0.8);
-			transition: linear background-color 0.3s;
-		}
 	}
 
 	.prev {

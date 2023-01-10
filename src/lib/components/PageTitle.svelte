@@ -9,7 +9,7 @@
 		display: flex;
 		font-size: 3rem;
 		margin-bottom: 2em;
-		text-shadow: 2px 1px #5b5b5b;
+		color: var(--color);
 
 		&::before {
 			content: '';
@@ -18,7 +18,7 @@
 		}
 
 		@include mobile {
-			font-size: 2.5rem;
+			font-size: 2rem;
 			margin-bottom: 1em;
 		}
 	}
