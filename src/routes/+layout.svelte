@@ -28,14 +28,6 @@
 <Footer />
 
 <style lang="scss">
-	:global(body) {
-		margin-top: 100px;
-
-		@include mobile {
-			margin-top: 37px;
-		}
-	}
-
 	:global(img.icon) {
 		@include dark {
 			filter: invert(0.7);
@@ -44,11 +36,12 @@
 
 	main {
 		flex: 1 0 auto;
-		padding-bottom: 5em;
+		padding-bottom: 5rem;
+		padding-top: 6rem;
 
 		@include mobile {
-			padding-top: 1em;
-			padding-bottom: 2em;
+			padding-top: 2rem;
+			padding-bottom: 2rem;
 		}
 
 		:global(a) {
