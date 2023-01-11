@@ -138,6 +138,10 @@
 		filter: blur(35px);
 		transform: scale(1.3);
 		opacity: 0.2;
+
+		@include mobile {
+			transform: scale(1.1);
+		}
 	}
 
 	.button {
