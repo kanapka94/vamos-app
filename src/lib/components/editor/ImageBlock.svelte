@@ -34,16 +34,16 @@
 				transform: translateX(-22px);
 			}
 		}
-
-		&:has(figcaption) {
-			padding-bottom: 1.5rem;
-		}
 	}
 
 	figcaption {
 		font-style: italic;
 		text-align: center;
 		margin-top: 1rem;
+
+		&:not(:empty) {
+			padding-bottom: 1.5rem;
+		}
 	}
 
 	img {

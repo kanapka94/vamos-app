@@ -55,6 +55,7 @@ export interface DataClass {
 	level?: number;
 	file?: File;
 	caption?: string;
+	html?: string;
 	withBorder?: boolean;
 	stretched?: boolean;
 	withBackground?: boolean;

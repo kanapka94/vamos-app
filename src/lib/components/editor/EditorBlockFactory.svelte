@@ -5,6 +5,7 @@
 	import ImageBlock from './ImageBlock.svelte';
 	import NestedListBlock from './NestedListBlock.svelte';
 	import ParagraphBlock from './ParagraphBlock.svelte';
+	import RawBlock from './RawBlock.svelte';
 
 	export let block: EditorBlock;
 </script>
@@ -19,4 +20,6 @@
 	<ImageBlock {block} />
 {:else if block.type === 'delimiter'}
 	<DelimiterBlock />
+{:else if block.type === 'raw'}
+	<RawBlock {block} />
 {:else}{/if}

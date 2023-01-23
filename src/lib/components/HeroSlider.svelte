@@ -80,12 +80,12 @@
 			class:active={activeImageIndex === index}
 		>
 			<img
-				src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1440&height=1080&fit=cover`}
+				src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1920&height=1080&fit=cover`}
 				alt={photo.directus_files_id.description}
 				class="blur-image"
 			/>
 			<img
-				src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1440&height=1080&fit=cover`}
+				src={`${PUBLIC_VITE_API_URL}/assets/${photo.directus_files_id.id}?width=1920&height=1080&fit=cover`}
 				alt={photo.directus_files_id.description}
 			/>
 		</a>
@@ -107,7 +107,6 @@
 		opacity: 0;
 		visibility: hidden;
 		transform: translateX(-50%);
-		transition: cubic-bezier(0.57, 0.21, 0.69, 1.25) 1s;
 
 		&::after {
 			content: '';
@@ -120,9 +119,13 @@
 
 		img {
 			width: 100%;
-			height: 40vh;
+			height: 50vh;
 			object-fit: cover;
 			border-radius: 10px;
+
+			@include desktop {
+				height: 40vh;
+			}
 		}
 
 		@include small-desktop {

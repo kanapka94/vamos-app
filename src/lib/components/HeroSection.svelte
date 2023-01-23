@@ -21,9 +21,13 @@
 <style lang="scss">
 	.hero {
 		position: relative;
-		height: 40vh;
+		height: 50vh;
 		margin-top: 4rem;
 		margin-bottom: 5rem;
+
+		@include desktop {
+			height: 40vh;
+		}
 
 		@include mobile {
 			margin-top: 4rem;
