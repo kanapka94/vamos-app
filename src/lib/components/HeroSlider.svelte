@@ -107,6 +107,7 @@
 		opacity: 0;
 		visibility: hidden;
 		transform: translateX(-50%);
+		transition: cubic-bezier(0.57, 0.21, 0.69, 1.25) 1s;
 
 		&::after {
 			content: '';
