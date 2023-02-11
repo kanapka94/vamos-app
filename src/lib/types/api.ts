@@ -20,7 +20,7 @@ export interface Page {
 	content: Content;
 	tags: Tag[];
 	date_published: string;
-	slug: string | null;
+	slug: string;
 	images: PageImage[];
 }
 

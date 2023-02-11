@@ -2,18 +2,7 @@
 	import { page } from '$app/stores';
 	import logo from '$lib/assets/vamos_logo.png';
 	import logoLight from '$lib/assets/vamos_logo_light.png';
-
-	interface Menu {
-		id: string;
-		status: 'published' | 'draft' | 'archived';
-		items: Item[];
-	}
-
-	interface Item {
-		label: string;
-		url: string;
-		submenu?: Item[];
-	}
+	import type { Menu } from '$lib/types/menu';
 
 	export let menu: Menu;
 
